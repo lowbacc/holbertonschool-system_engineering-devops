@@ -1,0 +1,70 @@
+1.User Request:
+
+A user wants to access the website by entering www.foobar.com in their browser.
+
+
+2.Domain Name:
+
+The domain name foobar.com is configured with a www record that points to the load balancer's IP address.
+
+
+3.Load Balancers (HAproxy):
+
+Load Balancer 1: Distributes incoming traffic across multiple servers.
+Load Balancer 2: Configured as a cluster with Load Balancer 1 for redundancy and high availability.
+Distribution Algorithm: The load balancers are configured with the Round Robin algorithm.
+Active-Active Setup: Both load balancers actively handle requests simultaneously.
+
+
+4.Firewalls:
+
+Firewall 1: Protects Load Balancer 1.
+Firewall 2: Protects Load Balancer 2.
+Firewall 3: Protects the web server.
+Firewall 4: Protects the application server.
+Firewall 5: Protects the database server.
+Purpose: Firewalls are used to filter incoming and outgoing traffic based on security rules, protecting the infrastructure from unauthorized access and attacks.
+
+
+5.Servers:
+
+Web Server (Nginx): Handles incoming HTTP/HTTPS requests from users and serves static content.
+Application Server: Runs the application code and processes dynamic requests.
+Database Server (MySQL): Stores and manages data for the website.
+
+
+6.Application Files:
+
+The application files contain the codebase for the website.
+
+
+7.Database (MySQL):
+
+The database stores and manages data for the website.
+Primary-Replica Cluster: The database is set up in a Primary-Replica (Master-Slave) configuration.
+Primary Node: Handles all write operations and propagates changes to the Replica node.
+Replica Node: Handles read operations and replicates data from the Primary node.
+
+
+8.SSL Certificate:
+
+An SSL certificate is used to encrypt traffic between the user's browser and the load balancers, ensuring secure communication over HTTPS.
+
+
+9.Monitoring Clients:
+
+Monitoring Client 1: Installed on Load Balancer 1.
+Monitoring Client 2: Installed on Load Balancer 2.
+Monitoring Client 3: Installed on the web server.
+Monitoring Client 4: Installed on the application server.
+Monitoring Client 5: Installed on the database server.
+Purpose: Monitoring clients collect data on server performance, uptime, and other metrics, sending it to a monitoring service like Sumologic.
+Monitoring Usage: Monitoring is used to detect and respond to issues in real-time, ensuring the infrastructure remains healthy and performant.
+Data Collection: Monitoring tools collect data such as CPU usage, memory usage, disk I/O, network traffic, and application logs.
+
+
+10.Issues with the Infrastructure:
+
+SSL Termination at Load Balancer: Terminating SSL at the load balancer level can be an issue if the internal traffic between the load balancer and servers is not encrypted.
+Single MySQL Server for Writes: Having only one MySQL server capable of accepting writes can be a bottleneck and a single point of failure.
+Homogeneous Servers: Having servers with all the same components (database, web server, and application server) can lead to resource contention and complicate scaling and maintenance.
