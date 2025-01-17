@@ -1,0 +1,54 @@
+1.User Request:
+
+A user wants to access the website by entering www.foobar.com in their browser.
+
+
+2.Domain Name:
+
+The domain name foobar.com is configured with a www record that points to the load balancer's IP address.
+
+
+3.Load Balancer (HAproxy):
+
+The load balancer distributes incoming traffic across multiple servers to ensure no single server becomes overwhelmed.
+Distribution Algorithm: The load balancer is configured with the Round Robin algorithm, which distributes requests evenly across all servers.
+Active-Active Setup: Both servers are actively handling requests simultaneously, improving availability and reliability.
+
+
+4.Servers:
+
+Server 1: Hosts the web server (Nginx) and application server.
+Server 2: Hosts the web server (Nginx) and application server.
+Server 3: Hosts the database (MySQL).
+
+
+5.Web Server (Nginx):
+
+The web server handles incoming HTTP/HTTPS requests from users.
+It serves static content (e.g., HTML, CSS, JavaScript) and forwards dynamic content requests to the application server.
+
+
+6.Application Server:
+
+The application server runs the application code and processes dynamic requests.
+It communicates with the database to fetch or store data as needed.
+
+
+7.Application Files:
+
+The application files contain the codebase for the website.
+
+
+8.Database (MySQL):
+
+The database stores and manages data for the website.
+Primary-Replica Cluster: The database is set up in a Primary-Replica (Master-Slave) configuration.
+Primary Node: Handles all write operations and propagates changes to the Replica node.
+Replica Node: Handles read operations and replicates data from the Primary node.
+
+
+9.Issues with the Infrastructure:
+
+Single Point of Failure (SPOF): The load balancer can be a SPOF if not properly configured with redundancy.
+Security Issues: No firewall and no HTTPS can lead to security vulnerabilities.
+No Monitoring: Lack of monitoring can make it difficult to detect and respond to issues in real-time.

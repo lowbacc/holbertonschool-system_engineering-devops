@@ -1,0 +1,52 @@
+1.User Request:
+
+A user wants to access the website by entering www.foobar.com in their browser.
+
+
+2.Domain Name:
+
+The domain name foobar.com is configured with a www record that points to the server's IP address 8.8.8.8.
+
+
+3.Server:
+
+A server is a physical or virtual machine that hosts the web infrastructure components.
+The server has the IP address 8.8.8.8.
+
+
+4.Web Server (Nginx):
+
+The web server (Nginx) handles incoming HTTP/HTTPS requests from users.
+It serves static content (e.g., HTML, CSS, JavaScript) and forwards dynamic content requests to the application server.
+
+
+5.Application Server:
+
+The application server runs the application code and processes dynamic requests.
+It communicates with the database to fetch or store data as needed.
+
+
+6.Application Files:
+
+The application files contain the codebase for the website.
+
+
+7.Database (MySQL):
+
+The database stores and manages data for the website.
+MySQL is used as the database management system.
+
+
+8.DNS Record:
+
+The www record in www.foobar.com is a CNAME (Canonical Name) record that points to the server's IP address 8.8.8.8.
+
+
+9.Communication:
+
+The server uses HTTP/HTTPS protocols to communicate with the user's computer.
+Issues with the Infrastructure:
+
+Single Point of Failure (SPOF): If the server fails, the entire website becomes unavailable.
+Downtime During Maintenance: Deploying new code or restarting the web server causes downtime.
+Scalability: The infrastructure cannot handle a large amount of incoming traffic, leading to potential performance issues.
